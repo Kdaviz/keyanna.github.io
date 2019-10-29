@@ -8,7 +8,7 @@ navbar:
     - icon: fa-envelope fa-lg
       href: mailto:<kd2640@cumc.columbia.edu>
     - icon: fa-github fa-lg
-      href: http://github.com/<Kdaviz>/
+      href: http://github.com/Kdaviz/
 output:
   html_document:
     theme: cerulean 
