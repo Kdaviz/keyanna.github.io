@@ -15,12 +15,9 @@ library(p8105.datasets)
 library(plotly)
 ```
 
-
 ```{r}
-data(instacart)
-```
+data(instacart) 
 
-```{r}
 instacart =  
   sample_n(instacart, 200000) %>% 
   mutate(
@@ -37,6 +34,11 @@ instacart =
   )
 ```
 
+Column {data-width=700}
+-----------------------------------------------------------------------
+
+### Chart A
+
 ```{r}
 instacart %>% 
   group_by(aisle, order_dow) %>% 
@@ -46,15 +48,12 @@ instacart %>%
 ```
 
 
-```{r}
-instacart %>% 
- group_by(product_name) %>% 
-  summarise(n = n()) %>% 
-  filter(n > 200) %>% 
-  plot_ly( y = ~product_name, x = ~n, type = "scatter", 
-           mode= "markers")
-  
-```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+
+### Chart B
 
 ```{r}
 instacart %>% 
@@ -63,5 +62,16 @@ instacart %>%
   filter(n > 200) %>% 
     plot_ly( x= ~product_name, y = ~n, type = "bar", 
            mode= "markers", color = I("green"))
+```
+
+### Chart C
+
+```{r}
+instacart %>% 
+ group_by(product_name) %>% 
+  summarise(n = n()) %>% 
+  filter(n > 200) %>% 
+  plot_ly( y = ~product_name, x = ~n, type = "scatter", 
+           mode= "markers")
 ```
 
