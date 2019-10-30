@@ -5,6 +5,8 @@ navbar:
   right:
     - text: "About"
       href: about.html
+    - text: "Dashboard_"
+      href: Dashboard_.html
     - icon: fa-envelope fa-lg
       href: mailto:<kd2640@cumc.columbia.edu>
     - icon: fa-github fa-lg

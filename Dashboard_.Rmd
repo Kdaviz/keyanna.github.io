@@ -1,0 +1,77 @@
+---
+title: "Dashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(tidyverse)
+library(viridis)
+library(p8105.datasets)
+
+library(plotly)
+```
+
+```{r}
+data(instacart) 
+
+instacart =  
+  sample_n(instacart, 200000) %>% 
+  mutate(
+    order_dow = recode(
+      order_dow,
+      '0' = "Sunday",
+      '1' = "Monday",
+      '2' = "Tuesday",
+      '3' = "Wednesday",
+      '4' = "Thursday",
+      '5' = "Friday",
+      '6' = "Saturday"
+    )
+  )
+```
+
+Column {data-width=700}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r}
+instacart %>% 
+  group_by(aisle, order_dow) %>% 
+  summarise(n = n()) %>% 
+  filter(n > 1000) %>% 
+  plot_ly(x = ~aisle, y = ~n, type = "bar", color = ~order_dow)
+```
+
+
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+
+### Chart B
+
+```{r}
+instacart %>% 
+  count(product_name) %>% 
+  mutate(product_name = fct_reorder(product_name, n)) %>% 
+  filter(n > 200) %>% 
+    plot_ly( x= ~product_name, y = ~n, type = "bar", 
+           mode= "markers", color = I("green"))
+```
+
+### Chart C
+
+```{r}
+instacart %>% 
+ group_by(product_name) %>% 
+  summarise(n = n()) %>% 
+  filter(n > 200) %>% 
+  plot_ly( y = ~product_name, x = ~n, type = "scatter", 
+           mode= "markers")
+```
+
