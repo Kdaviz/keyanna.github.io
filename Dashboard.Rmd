@@ -4,6 +4,7 @@ output:
   flexdashboard::flex_dashboard:
     orientation: columns
     vertical_layout: fill
+    code_folding: hide
 ---
 
 ```{r setup, include=FALSE}
@@ -15,11 +16,11 @@ library(p8105.datasets)
 library(plotly)
 ```
 
-```{r}
+```{r, include=FALSE}
 data(instacart) 
 
 instacart =  
-  sample_n(instacart, 200000) %>% 
+  sample_n(instacart, 20000) %>% 
   mutate(
     order_dow = recode(
       order_dow,
@@ -34,7 +35,7 @@ instacart =
   )
 ```
 
-Column {data-width=700}
+Column {data-width=650}
 -----------------------------------------------------------------------
 
 ### Chart A
@@ -43,8 +44,8 @@ Column {data-width=700}
 instacart %>% 
   group_by(aisle, order_dow) %>% 
   summarise(n = n()) %>% 
-  filter(n > 1000) %>% 
-  plot_ly(x = ~aisle, y = ~n, type = "bar", color = ~order_dow)
+  filter(n >100) %>% 
+  plot_ly(y = ~n, x= ~aisle, type = "bar",color = ~order_dow)
 ```
 
 
@@ -57,21 +58,21 @@ Column {data-width=350}
 
 ```{r}
 instacart %>% 
-  count(product_name) %>% 
-  mutate(product_name = fct_reorder(product_name, n)) %>% 
-  filter(n > 200) %>% 
-    plot_ly( x= ~product_name, y = ~n, type = "bar", 
-           mode= "markers", color = I("green"))
+  plot_ly( y = ~order_hour_of_day, color = ~department, type = "box")
 ```
 
 ### Chart C
 
 ```{r}
-instacart %>% 
- group_by(product_name) %>% 
-  summarise(n = n()) %>% 
-  filter(n > 200) %>% 
-  plot_ly( y = ~product_name, x = ~n, type = "scatter", 
-           mode= "markers")
+instacart %>%
+  group_by(order_dow) %>% 
+  summarise(total_hours = sum(order_hour_of_day)) %>% 
+plot_ly( x = ~order_dow, y = ~total_hours, 
+         type = "scatter", mode = "lines")
+ 
 ```
+
+
+
+
 
