@@ -1,10 +1,10 @@
 ---
 title: "Dashboard"
 output: 
-  flexdashboard::flex_dashboard:
-    orientation: columns
-    vertical_layout: fill
-    code_folding: hide
+   flexdashboard::flex_dashboard:
+   orientation: columns
+   vertical_layout: fill
+   code_folding: hide 
 ---
 
 ```{r setup, include=FALSE}
