@@ -3,8 +3,8 @@ output_dir: "."
 navbar:
   title: "Home"
   right:
-    - text: "About"
-      href: about.html
+    - text: "Resume"
+      href: resume.html
     - text: "Dashboard"
       href: Dashboard.html
     - icon: fa-envelope fa-lg
@@ -14,3 +14,4 @@ navbar:
 output:
   html_document:
     theme: cerulean 
+ 

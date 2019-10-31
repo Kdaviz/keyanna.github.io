@@ -10,15 +10,14 @@ output:
 
 # Just a little about Keyanna
 
-I was born and raise in the small town of Ashburn, Georgia. I love my family. My favorite color is green and I love chocolate. I'm the youngest of two brothers. Out of my two brothers, I have 11 nieces and nephews. I enjoy math very much in my free time I tutor individuals who finds math challenging. I graduated from Albany State University with a B.S in Mathematics. I worked on numerous of projects in my undergrad years. The project I completed Mailman has been by far favorite one. That what drove me to get a degree in Biostatistics. 
+* I was born and raise in the small town of Ashburn, Georgia. I love my family. My favorite color is green and I love chocolate. I'm the youngest of two brothers. Out of my two brothers, I have 11 nieces and nephews. I enjoy math very much in my free time I tutor individuals who finds math challenging. I graduated from Albany State University with a B.S in Mathematics. I worked on numerous of projects in my undergrad years. The project I completed Mailman has been by far favorite one. That what drove me to get a degree in Biostatistics. 
 
 
 
-# Pictures of Keyanna 
 
 
-<img src = "images/IMG_0789.JPG" style="width:25%">
-<img src = "images/IMG_0849.jpg" style="width:75%">
+
+<img src = "images/IMG_0849.jpg" style="width:50%">
 
 
 
