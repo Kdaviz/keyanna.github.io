@@ -36,7 +36,7 @@ instacart =
   drop_na()
 ```
 
-Column {data-width=650}
+Column {data-width=550}
 -----------------------------------------------------------------------
 
 ### Chart A
@@ -51,7 +51,7 @@ instacart %>%
 
 
 
-Column {data-width=350}
+Column {data-width=400}
 -----------------------------------------------------------------------
 
 
@@ -68,7 +68,9 @@ instacart %>%
 instacart %>% 
   count(product_name) %>% 
   filter(n > 50) %>% 
-  plot_ly(y = ~n, x = ~product_name, type = "scatter", mode= "lines")
+  plot_ly(y = ~n, x = ~product_name, type = "scatter", 
+          mode= "lines+markers",
+          color = I('green'))
  
 ```
 
