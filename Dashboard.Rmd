@@ -32,7 +32,8 @@ instacart =
       '5' = "Friday",
       '6' = "Saturday"
     )
-  )
+  ) %>% 
+  drop_na()
 ```
 
 Column {data-width=650}
@@ -64,11 +65,10 @@ instacart %>%
 ### Chart C
 
 ```{r}
-instacart %>%
-  group_by(order_dow) %>% 
-  summarise(total_hours = sum(order_hour_of_day)) %>% 
-plot_ly( x = ~order_dow, y = ~total_hours, 
-         type = "scatter", mode = "lines")
+instacart %>% 
+  count(product_name) %>% 
+  filter(n > 50) %>% 
+  plot_ly(y = ~n, x = ~product_name, type = "scatter", mode= "lines")
  
 ```
 
