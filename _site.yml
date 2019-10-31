@@ -13,4 +13,5 @@ navbar:
       href: http://github.com/Kdaviz
 output:
   html_document:
+  code_folding: hide
     theme: cerulean 
