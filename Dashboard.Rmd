@@ -32,11 +32,10 @@ instacart =
       '5' = "Friday",
       '6' = "Saturday"
     )
-  ) %>% 
-  drop_na()
+  )
 ```
 
-Column {data-width=550}
+Column {data-width=600}
 -----------------------------------------------------------------------
 
 ### Chart A
@@ -44,33 +43,35 @@ Column {data-width=550}
 ```{r}
 instacart %>% 
   group_by(aisle, order_dow) %>% 
-  summarise(n = n()) %>% 
-  filter(n >100) %>% 
-  plot_ly(y = ~n, x= ~aisle, type = "bar",color = ~order_dow)
+  summarise(total = n()) %>% 
+  filter(total >100) %>% 
+  plot_ly(y = ~total, x= ~aisle, type = "bar",color = ~order_dow)
 ```
 
-
-
-Column {data-width=400}
+Column {data-width=350}
 -----------------------------------------------------------------------
-
 
 ### Chart B
 
 ```{r}
 instacart %>% 
-  plot_ly( y = ~order_hour_of_day, color = ~department, type = "box")
+  plot_ly( y = ~order_hour_of_day, color = ~department, type = "box") 
 ```
+
+
+
+
 
 ### Chart C
 
 ```{r}
 instacart %>% 
-  count(product_name) %>% 
-  filter(n > 50) %>% 
-  plot_ly(y = ~n, x = ~product_name, type = "scatter", 
-          mode= "lines+markers",
-          color = I('green'))
+  group_by(product_name) %>% 
+  summarise(count = n()) %>% 
+  filter(count > 75) %>% 
+  plot_ly(y = ~count, x = ~product_name, type = "scatter", 
+          mode= "markers+lines",
+          color = I("green"))
  
 ```
 
