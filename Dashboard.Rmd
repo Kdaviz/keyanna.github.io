@@ -35,43 +35,63 @@ instacart =
   )
 ```
 
-Column {data-width=600}
+Column {data-width=550}
 -----------------------------------------------------------------------
 
-### Barchart of Total Number of Items from Each Aisle by Week Day
+### Barchart
 
 ```{r}
+x <- list(
+  title = "Aisle"
+)
+y <- list(
+  title = "Total Count"
+)
 instacart %>% 
   group_by(aisle, order_dow) %>% 
   summarise(total = n()) %>% 
   filter(total >100) %>% 
-  plot_ly(y = ~total, x= ~aisle, type = "bar",color = ~order_dow)
+  plot_ly(y = ~total, x= ~aisle, type = "bar",color = ~order_dow) %>%  layout(title = "Total Number of Items from Each Aisle by Week Day",
+         xaxis = x, yaxis = y)
 ```
 
-Column {data-width=350}
+Column {data-width=400}
 -----------------------------------------------------------------------
 
-### Boxplot of the Distibutions of Orders Hours of the Day by each Deparment
+### Boxplots
 
 ```{r}
+y <- list(
+  title = "Order Hours of the Day"
+  
+)
 instacart %>% 
-  plot_ly( y = ~order_hour_of_day, color = ~department, type = "box") 
+  plot_ly( y = ~order_hour_of_day, color = ~department, type = "box") %>% 
+  layout(title = "Distibutions of Orders Hours of the Day by each Deparment", yaxis = y)
 ```
 
 
 
 
 
-### Line Graph of 75 or More Total Number of Products 
+### Linegraph 
 
 ```{r}
+x <- list(
+  title = "Product"
+)
+y <- list(
+  title = "Total Count"
+)
 instacart %>% 
   group_by(product_name) %>% 
   summarise(count = n()) %>% 
   filter(count >= 75) %>% 
   plot_ly(y = ~count, x = ~product_name, type = "scatter", 
           mode= "markers+lines",
-          color = I("green"))
+          color = I("green")) %>% 
+  layout(title = "Products That Have a Count of 75 or More ",
+         xaxis = x, yaxis = y)
  
 ```
 
