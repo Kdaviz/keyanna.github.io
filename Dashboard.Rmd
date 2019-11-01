@@ -38,7 +38,7 @@ instacart =
 Column {data-width=600}
 -----------------------------------------------------------------------
 
-### Chart A
+### Barchart of Total Number of Items from Each Aisle by Week Day
 
 ```{r}
 instacart %>% 
@@ -51,7 +51,7 @@ instacart %>%
 Column {data-width=350}
 -----------------------------------------------------------------------
 
-### Chart B
+### Boxplot of the Distibutions of Orders Hours of the Day by each Deparment
 
 ```{r}
 instacart %>% 
@@ -62,13 +62,13 @@ instacart %>%
 
 
 
-### Chart C
+### Line Graph of 75 or More Total Number of Products 
 
 ```{r}
 instacart %>% 
   group_by(product_name) %>% 
   summarise(count = n()) %>% 
-  filter(count > 75) %>% 
+  filter(count >= 75) %>% 
   plot_ly(y = ~count, x = ~product_name, type = "scatter", 
           mode= "markers+lines",
           color = I("green"))
