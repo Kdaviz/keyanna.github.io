@@ -5,6 +5,8 @@ navbar:
   right:
     - text: "Resume"
       href: resume.html
+    - text: "Projects"
+      href: projects.html
     - text: "Dashboard"
       href: Dashboard.html
     - icon: fa-envelope fa-lg
